@@ -91,7 +91,8 @@ services:
       - SCRUTINY_WEB_INFLUXDB_ORG=homelab
       - SCRUTINY_WEB_INFLUXDB_BUCKET=scrutiny
       # Optional but highly recommended to notify you in case of a problem
-      - SCRUTINY_NOTIFY_URLS=["http://gotify:80/message?token=a-gotify-token"]
+      # note, "lines" are space delimited in the environmental variable. 
+      - SCRUTINY_NOTIFY_URLS="http://gotify:80/message?token=a-gotify-token discord://token@channel telegram://token@telegram?channels=channel-1"
     depends_on:
       - influxdb
     restart: unless-stopped
